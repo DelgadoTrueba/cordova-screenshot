@@ -57,7 +57,7 @@ public class Screenshot extends CordovaPlugin {
                 } else if (mAction.equals("getScreenshotAsURI")) {
                     getScreenshotAsURI(bitmap, mQuality);
                 } else if (mAction.equals("getScreenshotAsBinary")) {
-                    getScreenshotAsBinary(mFormat, mQuality)
+                    getScreenshotAsBinary(bitmap, mFormat, mQuality);
                 }
             }
         }
@@ -176,7 +176,7 @@ public class Screenshot extends CordovaPlugin {
 
             CompressFormat fmt = CompressFormat.JPEG;
             if (format.equals("png")){
-                fmt = CompressFormat.PNG
+                fmt = CompressFormat.PNG;
             }
 
             if (bitmap.compress(fmt, quality, jpeg_data)) {
@@ -188,9 +188,6 @@ public class Screenshot extends CordovaPlugin {
             }
 
             jpeg_data = null;
-
-        } catch (JSONException e) {
-            mCallbackContext.error(e.getMessage());
 
         } catch (Exception e) {
             mCallbackContext.error(e.getMessage());

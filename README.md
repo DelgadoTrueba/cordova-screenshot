@@ -66,31 +66,15 @@ navigator.screenshot.URI(function(error,res){
 },50);
 ```
 
-## usage in AngularJS
-
-```js
-.service('$cordovaScreenshot', ['$q', function ($q){
-	return {
-		capture: function (filename, extension, quality){
-			extension = extension || 'jpg';
-			quality = quality || '100';
-
-			var defer = $q.defer();
-			
-			navigator.screenshot.save(function (error, res){
-				if (error) {
-					console.error(error);
-					defer.reject(error);
-				} else {
-					console.log('screenshot saved in: ', res.filePath);
-					defer.resolve(res.filePath);
-				}
-			}, extension, quality, filename);
-			
-			return defer.promise;
-		}
-	};
-}])
+take screen and get it as ArrayBuffer with jpg and custom quality
+```
+navigator.screenshot.binary(function(error,res){
+  if(error){
+    console.error(error);
+  }else{
+    let blob = new Blob([res])  //convert to Blob for http request/response
+  }
+}, 'jpg', 50);
 ```
 
 ## Known Issue
