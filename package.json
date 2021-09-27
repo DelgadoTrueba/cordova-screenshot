@@ -28,12 +28,12 @@
       "version": ">=3.0.0"
     }
   ],
-  "author": "Hongbo LU",
+  "author": "kczhang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gitawego/cordova-screenshot/issues"
+    "url": "https://github.com/Zhangkc/cordova-screenshot/issues"
   },
-  "homepage": "https://github.com/gitawego/cordova-screenshot#readme",
+  "homepage": "https://github.com/Zhangkc/cordova-screenshot#readme",
   "devDependencies": {
     "sync-cordova-xml": "^0.4.0"
   },

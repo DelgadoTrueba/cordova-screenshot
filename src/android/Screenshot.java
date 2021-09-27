@@ -3,8 +3,8 @@
  * MIT licensed
  *
  * @author Josemando Sobral
- * @created Jul 2nd, 2012.
- * improved by Hongbo LU
+ * @created Sep 27th, 2021.
+ * improved by kczhang
  */
 package com.darktalker.cordova.screenshot;
 
