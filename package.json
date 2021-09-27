@@ -1,7 +1,7 @@
 {
-  "name": "com.darktalker.cordova.screenshot",
+  "name": "com.kcz.cordova.screenshot",
   "version": "0.1.7",
-  "description": "screenshot PhoneGap Plugin for Android",
+  "description": "screenshot Cordova Plugin for Android",
   "cordova": {
     "id": "com.darktalker.cordova.screenshot",
     "platforms": [
@@ -18,9 +18,7 @@
     "cordova",
     "screenshot",
     "ecosystem:cordova",
-    "cordova-android",
-    "cordova-ios",
-    "cordova-osx"
+    "cordova-android"
   ],
   "engines": [
     {
