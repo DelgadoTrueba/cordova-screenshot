@@ -1,6 +1,6 @@
 {
   "name": "com.darktalker.cordova.screenshot",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "screenshot PhoneGap Plugin for Android",
   "cordova": {
     "id": "com.darktalker.cordova.screenshot",
