@@ -56,7 +56,7 @@ public class Screenshot extends CordovaPlugin {
                     saveScreenshot(bitmap, mFormat, mFileName, mQuality);
                 } else if (mAction.equals("getScreenshotAsURI")) {
                     getScreenshotAsURI(bitmap, mQuality);
-                }
+                } else if (mAction.equals("getScreenshotAsBinary"))
             }
         }
         return null;
@@ -139,6 +139,49 @@ public class Screenshot extends CordovaPlugin {
 
                 js_out = null;
                 output = null;
+                code = null;
+            }
+
+            jpeg_data = null;
+
+        } catch (JSONException e) {
+            mCallbackContext.error(e.getMessage());
+
+        } catch (Exception e) {
+            mCallbackContext.error(e.getMessage());
+
+        }
+    }
+
+    public void getScreenshotAsBinary() throws JSONException{
+        mFormat = (String) mArgs.get(0);
+        mQuality = (Integer) mArgs.get(1);
+
+        super.cordova.getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Bitmap bitmap = getBitmap();
+                if (bitmap != null) {
+                    getScreenshotAsBinary(bitmap, mFormat, mQuality);
+                }
+            }
+        });
+    }
+
+    private void getScreenshotAsBinary(Bitmap bitmap, String format, int quality) {
+        try {
+            ByteArrayOutputStream jpeg_data = new ByteArrayOutputStream();
+
+            CompressFormat fmt = CompressFormat.JPEG;
+            if (format.equals("png")){
+                fmt = CompressFormat.PNG
+            }
+
+            if (bitmap.compress(fmt, quality, jpeg_data)) {
+                byte[] code = jpeg_data.toByteArray();
+                PluginResult result = new PluginResult(PluginResult.Status.OK, code);
+                mCallbackContext.sendPluginResult(result);
+
                 code = null;
             }
 

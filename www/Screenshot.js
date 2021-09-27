@@ -40,5 +40,16 @@ module.exports = {
 		}, function(error){
 			callback && callback(error);
 		}, "Screenshot", method, [quality]);
-	}
+	},
+
+	bianry:function(callback, format, quality){
+		format = (format || 'png').toLowerCase();
+		quality = typeof(quality) !== 'number'?100:quality;
+		exec(function(res){
+			callback && callback(null, res);
+		}, function(error){
+			callback && callback(error);
+		}, "Screenshot", "getScreenshotAsBinary", [format, quality]);
+
+	},
 };
